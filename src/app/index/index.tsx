@@ -1,8 +1,6 @@
 import {View, Text} from 'react-native'
-import { styles } from './styles'
 import Ingredients from '@/components/Ingredients'
-import { useEffect, useState } from 'react'
-import { services } from '@/services'
+import { styles } from './styles'
 
 
 export default function index() {

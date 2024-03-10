@@ -1,21 +1,28 @@
-import { FlatList, Text, View } from 'react-native'
-import { styles } from './styles'
+import { FlatList, ScrollView, Text, View } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 import { router, useLocalSearchParams } from 'expo-router'
-import { Recipe } from '@/components/Recipe'
 import { useEffect, useState } from 'react'
+
+import { Recipe } from '@/components/Recipe'
 import { services } from '@/services'
-import Ingredients from '@/components/Ingredients'
+import Ingredient from '@/components/Ingredient'
+
+import { styles } from './styles'
 
 export default function Recipes() {
 
   const [ingredients, setIngredients] = useState<IngredientResponse[]>([])
+  const [recipes, setRecipes] = useState<RecipeResponse[]>([])
 
   const params = useLocalSearchParams<{ingredientsIds: string}>()
   const ingredientsIds = params.ingredientsIds.split(',')
 
   useEffect(() => {
     services.ingredients.findByIds(ingredientsIds).then(setIngredients)
+  }, [])
+
+  useEffect(() => {
+    services.recipes.findByIngredientsIds(ingredientsIds).then(setRecipes)
   }, [])
 
   return (
@@ -29,13 +36,27 @@ export default function Recipes() {
 
         <Text style={styles.title}>Ingredientes</Text>
       </View>
-
-      <Ingredients ingredientsProp={ingredients}/>
+      <ScrollView contentContainerStyle={styles.container} horizontal>
        
+      {ingredients.map((item) => (
+          <Ingredient  
+          key={item.id} 
+          name={item.name} 
+          image={`${services.storage.imagePath}/${item.image}`} 
+          />
+        ))}
+       </ScrollView>
+
       <FlatList
-         data={["1"]}
-         keyExtractor={(item) => item}
-         renderItem={() => <Recipe recipe={{name: "omelete", minutes:10, image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpanelaboa.com%2Freceita-de-omelete-recheado-uma-delicia-pratica-e-saborosa%2F&psig=AOvVaw2kgsU2mTLYTHm2jNnbBv9N&ust=1710124910355000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCKDIvPLV6IQDFQAAAAAdAAAAABAE"}}></Recipe>}
+         data={recipes}
+         keyExtractor={(item) => (item.id)}
+         renderItem={({item}) => <Recipe recipe={item} onPress={() => router.navigate("/recipe/" + item.id)}/>}
+
+         style={styles.recipes}
+         contentContainerStyle={styles.recipesContent}
+         showsVerticalScrollIndicator={false}
+         columnWrapperStyle={{gap: 16}}
+         numColumns={2}
       />
     </View>
   )

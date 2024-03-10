@@ -21,6 +21,7 @@ export default function Ingredients() {
     }
 
     setSelected((state) => [...state, value])
+    console.log(selected)
   }
 
   //Função para limpar os itens selecionados

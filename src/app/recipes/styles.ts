@@ -3,16 +3,26 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1
+        gap: 12,
+        marginStart: 16
     },
     header: {
-        paddingHorizontal: 32,
-        paddingTop: 62,
-        marginBottom: 12
+        paddingHorizontal: 24,
+        paddingTop: 48,
+        marginBottom: 2
     },
     title: {
         fontSize: theme.fonts.size.heading.md,
         fontFamily: theme.fonts.family.bold,
-        marginTop: 20
+        marginTop: 20,
+        textAlign: 'center'
+        // marginStart: 8
+    },
+    recipes: {
+        padding: 16,
+        
+    },
+    recipesContent: {
+        gap: 16
     }
 })

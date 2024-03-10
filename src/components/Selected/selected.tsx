@@ -14,7 +14,7 @@ type Props = {
 
 export default function Selected({quantity, onClear, onSearch}: Props) {
   return (
-      <Animated.View style={styles.container} entering={SlideInDown.duration(1000)} exiting={BounceOutDown.duration(2000)}>
+      <Animated.View style={styles.container} entering={SlideInDown.duration(500)} exiting={BounceOutDown.duration(1000)}>
         <View style={styles.header}>
             <Text style={styles.label}>{quantity} ingredientes selecionados</Text>
             <MaterialIcons 
