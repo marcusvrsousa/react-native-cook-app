@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     overflow: "hidden",
   },
   image: {
-    flex: 1,
+    flex: 1
   },
   linear: {
     flex: 1,

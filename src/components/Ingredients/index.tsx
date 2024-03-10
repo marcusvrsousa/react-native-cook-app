@@ -3,13 +3,16 @@ import { Alert, ScrollView, View } from 'react-native'
 import {  router } from "expo-router";
 
 
-import Ingredient from '../Ingredient'
-import { useState } from 'react'
+import Ingredient, { IngredientsProps } from '../Ingredient'
+import { useEffect, useState } from 'react'
 import Selected from '../Selected/selected'
+import { services } from '@/services';
+
 
 export default function Ingredients() {
 
   const [selected, setSelected] = useState<string[]>([])
+  const [ingredients, setIngredients] = useState<IngredientResponse[]>([])
 
   function handleToggleSelected(value: string){
     //condição para 'desmarcar' o valor selecionado
@@ -33,19 +36,23 @@ export default function Ingredients() {
   }
 
   function handleSearch(){
-    router.navigate("/recipes/")
+    router.navigate("/recipes/" + selected)
   }
+  
+  useEffect(() => {
+    services.ingredients.findAll().then(setIngredients) 
+  }, [])
   
   return (
     <>
       <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
         
-        {Array.from({length: 50}).map((item, index) => (
-          <Ingredient key={index} 
-          name='Tomato' 
-          image=''  
-          selected={selected.includes(String(index))}
-          onPress={() => handleToggleSelected(String(index))}/>
+        {ingredients.map((item) => (
+          <Ingredient key={item.id} 
+          name={item.name} 
+          image={`${services.storage.imagePath}/${item.image}`}   
+          selected={selected.includes(item.id)}
+          onPress={() => handleToggleSelected(item.id)}/>
         ))}
       </ScrollView>
 
