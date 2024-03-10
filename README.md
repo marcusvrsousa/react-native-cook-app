@@ -28,3 +28,5 @@ O aplicativo que te ajuda a preparar seu lanche com base nos ingredientes seleci
 - Navegação entre páginas com router e utilização do useLocalSearchParams para capturar os parametros da url
 
 - Para consumo dos dados foi utilizado o Supabase, que é um backend como serviço
+
+### Créditos: Rocketseat
