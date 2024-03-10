@@ -11,11 +11,11 @@ O aplicativo que te ajuda a preparar seu lanche com base nos ingredientes seleci
 
 ### 🔧 Instalação
 
-1 - Na pasta do projeto, abra o terminal e execute o comando 'npm install' para instalar todas as dependências
-2 - Execute o comando: npx expo start e aguarde o loading
-3 - Você pode abrir no navegador pressionando 'w' ou copiando a url fornecida. Porém, para uma melhor experiência, execute no seu smartphone.
-4 - Para executar no smartphone, abra o aplicativo ' Expo Go ' e selecione a opção ' Scan QR code ' para ler o QR Code que está no terminal do VSCODE.
-5 - Enjoy it! ❤️ 
+1 Na pasta do projeto, abra o terminal e execute o comando 'npm install' para instalar todas as dependências
+2 Execute o comando: npx expo start e aguarde o loading
+3 Você pode abrir no navegador pressionando 'w' ou copiando a url fornecida. Porém, para uma melhor experiência, execute no seu smartphone.
+4 Para executar no smartphone, abra o aplicativo ' Expo Go ' e selecione a opção ' Scan QR code ' para ler o QR Code que está no terminal do VSCODE.
+5 Enjoy it! ❤️ 
 
 ## 🛠️ Construído com
 
