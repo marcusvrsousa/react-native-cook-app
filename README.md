@@ -2,7 +2,7 @@
 
 O aplicativo que te ajuda a preparar seu lanche/refeição com base nos ingredientes selecionados!
 
-<image src="https://github.com/marcusvrsousa/react-native-cook-app/assets/32283039/825c3e12-0106-41d2-a429-7b16194d2d5f"/>
+<image src="https://github.com/marcusvrsousa/react-native-cook-app/assets/32283039/b09f12a1-7b8d-4b66-a329-02baf542968e"/>
 
 ### 📋 Pré-requisitos
 
